@@ -3,11 +3,12 @@
 A project using React to develop a math quiz application.
 
 ## Skills Demonstrated:
-	JavaScript
-	React.js
-	CSS
-	HTML
-	Object-Oriented Programming
+JavaScript return
+React.js  return
+CSS  return
+HTML
+Object-Oriented Programming
+Git & GitHub
 
 ## Project Requirements:
 Use React
