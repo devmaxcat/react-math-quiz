@@ -14,8 +14,36 @@ code {
 
 .header {
   position: relative;
+
+  
+  align-items: center;
+  justify-content: center;
   background-color: white;
   z-index: 10;
+ 
+  background-color: #dfdfdf;
+}
+
+
+.header .top {
+  padding: em 1em;
+  background-color: #a0a0a0;
+}
+
+.header .bottom {
+  padding: 1em;
+  display: flex;
+
+  justify-content: center;
+}
+
+.profile {
+
+  left: 1em;
+}
+
+.timer {
+  justify-self: center;
 }
 
 .notification {

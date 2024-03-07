@@ -46,7 +46,7 @@ class Notification {
 }
 
 function App() {
- 
+  const [hasStarted, setStarted] = useState(false)
   const [quizData, setQuizData] = useState({
     username: 'Anonymous',
     amount: 5,
@@ -101,11 +101,11 @@ function App() {
   }
   return (
     <>
-      <Header username={quizData.username} />
+      <Header username={quizData.username} hasStarted={hasStarted} quizData={quizData} />
       <NotificationBar Queue={notificationQueue} SetQueue={setNotificationQueue} />
 
       <Form startQuiz={startQuiz} page={page} />
-      <Quiz page={page} operatorFunctions={operationFunctions} quizData={quizData} currentQuestion={quizData.currentQuestion} reportCorrect={reportCorrect} />
+      <Quiz page={page} operatorFunctions={operationFunctions} quizData={quizData} hasStarted={hasStarted} setStarted={setStarted} currentQuestion={quizData.currentQuestion} reportCorrect={reportCorrect} />
     </>
   )
 }

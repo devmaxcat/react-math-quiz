@@ -8,9 +8,9 @@ function QuizQuestion({reportCorrect, correctAnswer, questionString}) {
       if (e.key === 'Enter' || e.keyCode === 13) {
           var value = parseFloat(e.target.value);
           if (value === correctAnswer) {
-              reportCorrect(true)
+              reportCorrect(true);
           } else {
-              reportCorrect(false)
+              reportCorrect(false);
           }
       }
      
@@ -18,26 +18,36 @@ function QuizQuestion({reportCorrect, correctAnswer, questionString}) {
   </div>)
 }
 
-function ResultScreen({quizData}) {
+function Results({quizData}) {
     return (
     <div className='results'>
         <span>{quizData.correct}</span>
     </div>)
 }
 
-export default function Quiz({quizData, page, currentQuestion, reportCorrect, operatorFunctions}) {
-   
+export default function Quiz({quizData, page, currentQuestion, hasStarted, reportCorrect, operatorFunctions, setStarted}) {
+    
     if (page === 'quiz') {
         var questions = quizData.questions
         if (questions.length > 0 && currentQuestion < questions.length) {
+            if (currentQuestion === 0 && !hasStarted) {
+                return (
+                    <div>
+                        <button onClick={() => {setStarted(true)}}>Start Quiz</button>
+                    </div>
+                )
+            }
             var questionString = `${questions[currentQuestion].x} ${operatorFunctions.operationNameToSymbol(quizData.type)} ${questions[currentQuestion].y} `
+
             var correctAnswer = operatorFunctions.answerXYfromOperationName(quizData.type, questions[currentQuestion].x, questions[currentQuestion].y)
+            
             return (
                <QuizQuestion reportCorrect={reportCorrect} correctAnswer={correctAnswer} questionString={questionString} />
               )
         } else {
+            setStarted(false)
             return (
-                <ResultScreen quizData={quizData} />
+                <Results quizData={quizData} />
             )
            
         }

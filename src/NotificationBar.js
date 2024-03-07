@@ -4,7 +4,7 @@ export default function NotificationBar({ Queue }) {
   const [index, setIndex] = useState(0);
 
   const notification = Queue[index] ? Queue[index] : { message: '' }
-  console.log(Queue, index)
+  
   // setIndex( index + 1)
 
   if (Queue.length > index) {

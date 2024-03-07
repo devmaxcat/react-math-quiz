@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Profile({username}) {
   return (
-    <div>
+    <div className='profile'>
         {username}
     </div>
   )
