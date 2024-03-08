@@ -45,6 +45,16 @@ class Notification {
   }
 }
 
+function generateQuestions(amount) {
+  var generatedQuestions = [];
+
+  for (let i = 0; amount > i; i++) {
+    generatedQuestions.push({ x: randomNumber(), y: randomNumber() })
+  }
+
+  return generatedQuestions
+}
+
 function App() {
   const [hasStarted, setStarted] = useState(false)
   const [quizData, setQuizData] = useState({
@@ -57,17 +67,25 @@ function App() {
   })
   console.log(quizData)
   const [notificationQueue, setNotificationQueue] = useState([])
+  const goToOptions = function(event) {
+   
+    setQuizData({...quizData})
+    page = 'info'
+  }
   const startQuiz = function (event) {
+    setStarted(false)
     event.preventDefault()
-    const { username, amount, type } = event.target.elements;
+    const { username, amount, type } = event.target.elements ;
     // form validation
     if (username.value === '') {
+      username.setAttribute('aria-invalid', 'true')
       setNotificationQueue([...notificationQueue,
       new Notification('Please enter your name', 5, true, false)
       ])
       return
     }
     if (amount.value % 1 !== 0 || amount.value === '' || amount.value < 1) {
+      amount.setAttribute('aria-invalid', 'true')
       setNotificationQueue([...notificationQueue,
       new Notification('Please enter a whole number', 5, true, false)
       ])
@@ -75,11 +93,7 @@ function App() {
     }
     //
 
-    var generatedQuestions = [];
-
-    for (let i = 0; amount.value > i; i++) {
-      generatedQuestions.push({ x: randomNumber(), y: randomNumber() })
-    }
+   
     
     setQuizData({
       username: username.value,
@@ -87,12 +101,17 @@ function App() {
       type: type.value,
       correct: amount.value,
       currentQuestion: 0,
-      questions: generatedQuestions,
+      questions: generateQuestions(amount.value),
 
     })
     page = 'quiz';
   }
   const reportCorrect = function (isCorrect) {
+    if (isCorrect === 'retry') {
+      setQuizData({ ...quizData, currentQuestion: 0, correct: quizData.amount, questions: generateQuestions(quizData.amount) })
+      setStarted(false)
+      return
+    }
     if (isCorrect) {
       setQuizData({ ...quizData, currentQuestion: quizData.currentQuestion + 1 })
     } else {
@@ -103,9 +122,11 @@ function App() {
     <>
       <Header username={quizData.username} hasStarted={hasStarted} quizData={quizData} page={page} />
       <NotificationBar Queue={notificationQueue} SetQueue={setNotificationQueue} />
-
+      <main>
       <Form startQuiz={startQuiz} page={page} />
-      <Quiz page={page} operatorFunctions={operationFunctions} quizData={quizData} hasStarted={hasStarted} setStarted={setStarted} currentQuestion={quizData.currentQuestion} reportCorrect={reportCorrect} />
+      <Quiz startQuiz={startQuiz} returnBack={goToOptions}  page={page} operatorFunctions={operationFunctions} quizData={quizData} hasStarted={hasStarted} setStarted={setStarted} currentQuestion={quizData.currentQuestion} reportCorrect={reportCorrect} />
+      </main>
+    
     </>
   )
 }

@@ -11,9 +11,10 @@ export default function Timer({ hasStarted, quizData }) {
         if (hasStarted) {
             timer = setInterval(() => {setTime(time + 1)}, 1000)
         }
-        return () => clearInterval(timer)
+        return () =>  clearInterval(timer)
     }, [hasStarted, time])
 
+   
 
     return (
         <div className='timer quiz-info-box'>

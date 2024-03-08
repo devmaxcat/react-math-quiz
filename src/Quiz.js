@@ -23,21 +23,23 @@ function QuizQuestion({reportCorrect, correctAnswer, questionString}) {
   </div>)
 }
 
-function Results({quizData}) {
+function Results({quizData, returnBack, reportCorrect}) {
     return (
     <div className='results'>
         <span>{quizData.correct}</span>
+        <button onClick={() => {reportCorrect('retry')}}>Try again</button>
+        <button onClick={() => {returnBack()}}>Options</button>
     </div>)
 }
 
-export default function Quiz({quizData, page, currentQuestion, hasStarted, reportCorrect, operatorFunctions, setStarted}) {
+export default function Quiz({quizData, page, currentQuestion, hasStarted, reportCorrect, operatorFunctions, setStarted, startQuiz, returnBack}) {
     
     if (page === 'quiz') {
         var questions = quizData.questions
         if (questions.length > 0 && currentQuestion < questions.length) {
             if (currentQuestion === 0 && !hasStarted) {
                 return (
-                    <div>
+                    <div className='prequiz'>
                         <div>Answer every question to the best of your ability, you will be timed.</div>
                         <button onClick={() => {setStarted(true)}}>Start Quiz</button>
                     </div>
@@ -53,7 +55,7 @@ export default function Quiz({quizData, page, currentQuestion, hasStarted, repor
         } else {
             setStarted(false)
             return (
-                <Results quizData={quizData} />
+                <Results reportCorrect={reportCorrect} quizData={quizData} returnBack={returnBack}/>
             )
            
         }

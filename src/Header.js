@@ -6,7 +6,7 @@ export default function Header({ username, hasStarted, quizData, page }) {
   var progressPercent = hasStarted ? ((quizData.currentQuestion / quizData.questions.length) * 100) + '%' : '100%'
   return (
     <div className='header'>
-      <div className='top'>
+      <div className={'top ' + (page === 'quiz')}>
       <span className='title'>Math Quiz</span>
         <Profile username={username} />
        

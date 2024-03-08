@@ -5,7 +5,7 @@ export default function NotificationBar({ Queue }) {
 
   const notification = Queue[index] ? Queue[index] : { message: '' }
   
-  // setIndex( index + 1)
+
 
   if (Queue.length > index) {
     timeout = setTimeout(() => {
