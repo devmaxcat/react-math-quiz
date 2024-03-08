@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function QuizQuestion({reportCorrect, correctAnswer, questionString}) {
+  
     return (
     <div className='question'>
     <div className='ask'>{questionString}</div>
-    <input className='input' onKeyUp={(e) => {
+    <input autoFocus key={Math.random()} className='input' 
+    onBlur={(e) => {
+        e.target.focus()
+    }}
+    onKeyUp={(e) => {
       if (e.key === 'Enter' || e.keyCode === 13) {
           var value = parseFloat(e.target.value);
           if (value === correctAnswer) {
@@ -33,6 +38,7 @@ export default function Quiz({quizData, page, currentQuestion, hasStarted, repor
             if (currentQuestion === 0 && !hasStarted) {
                 return (
                     <div>
+                        <div>Answer every question to the best of your ability, you will be timed.</div>
                         <button onClick={() => {setStarted(true)}}>Start Quiz</button>
                     </div>
                 )

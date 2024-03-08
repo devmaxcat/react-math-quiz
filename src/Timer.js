@@ -16,7 +16,7 @@ export default function Timer({ hasStarted, quizData }) {
 
 
     return (
-        <div className='timer'>
+        <div className='timer quiz-info-box'>
             {formattedTime}
         </div>
     )

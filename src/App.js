@@ -67,7 +67,7 @@ function App() {
       ])
       return
     }
-    if (amount.value % 1 !== 0 || amount.value === '') {
+    if (amount.value % 1 !== 0 || amount.value === '' || amount.value < 1) {
       setNotificationQueue([...notificationQueue,
       new Notification('Please enter a whole number', 5, true, false)
       ])
@@ -101,7 +101,7 @@ function App() {
   }
   return (
     <>
-      <Header username={quizData.username} hasStarted={hasStarted} quizData={quizData} />
+      <Header username={quizData.username} hasStarted={hasStarted} quizData={quizData} page={page} />
       <NotificationBar Queue={notificationQueue} SetQueue={setNotificationQueue} />
 
       <Form startQuiz={startQuiz} page={page} />
