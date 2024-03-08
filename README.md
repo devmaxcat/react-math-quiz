@@ -2,6 +2,10 @@
 
 A project using React to develop a math quiz application.
 
+## Personal Goals:
+Make a functional, well-designed website using React.
+Learn how to *think* while using React.
+
 ## Skills Demonstrated:
 JavaScript  
 React.js  
