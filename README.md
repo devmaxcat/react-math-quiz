@@ -1,10 +1,9 @@
 # React Math-Quiz
-
 A project using React to develop a math quiz application.
 
 ## Personal Goals:
-Make a functional, well-designed website using React.  
-Learn how to *think* while using React.
+Make a functional, well-designed website.
+Learn React and how to best utilize it.
 
 ## Skills Demonstrated:
 JavaScript  
@@ -30,6 +29,9 @@ Display results page after quiz is finished:
  	 - Date and Time  
  	 - Show a message based on percentage  
 Use CSS and Comments  
+
+## Time Spent
+~ 2 weeks
 
 
 
