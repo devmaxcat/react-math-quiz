@@ -1,7 +1,7 @@
 # React Math-Quiz
 A project using React to develop a math quiz application.
 
-### LIVE: https://spradleyc2026.smtchs.org/Classwork/flashcards/
+### LIVE: https://repo.maxcat.dev/react-math-quiz
 
 ## Personal Goals:
 Make a functional, well-designed website.
