@@ -12,7 +12,6 @@ const Module = {
         return generatedQuestions
       },
     generateRandomNumbers: function (type, isHard) {
-        console.log(isHard)
         if (type === 'Division') {
             let divsor = this.randomNumber(1, isHard ? 100 : 10)
             let dividend = divsor * this.randomNumber(1, isHard ? 100 : 10)

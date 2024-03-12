@@ -5,7 +5,7 @@ function QuestionRecap({ question, userAnswers, questionIndex }) {
     var userAnswer = userAnswers[questionIndex];
     
     return (
-        <div className='recap-question' key={Math.random()}>
+        <div className='recap-question'>
             <span className='ask'>{question.ask} = <span>{question.answer}</span></span>
 
             <span>Your Answer: <span className={'user-answer ' + (question.answer === parseFloat(userAnswer))}>{(userAnswer.length > 0) ? userAnswer : '?'}</span></span>
@@ -37,7 +37,7 @@ export default function Results({ quizData, returnBack, reportCorrect, userAnswe
             <div className='recap'>
                 <h2>Your answers</h2>
                 {quizData.questions.map((question, index) => (
-                    <QuestionRecap userAnswers={userAnswers} question={question} questionIndex={index} />
+                    <QuestionRecap key={index} userAnswers={userAnswers} question={question} questionIndex={index} />
                 ))}
             </div>
         </div>
