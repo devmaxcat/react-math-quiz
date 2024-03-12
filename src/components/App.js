@@ -56,6 +56,11 @@ function App() {
       notify(new Notification('Please enter your name', 5, true, false));
       return;
     }
+    if (username.value.length > 20) {
+      username.setAttribute('aria-invalid', 'true');
+      notify(new Notification('Username is too long.', 5, true, false));
+      return;
+    }
     if (amount.value % 1 !== 0 || amount.value === '' || amount.value < 1) {
       amount.setAttribute('aria-invalid', 'true');
       notify(new Notification('Amount must be a whole number that is greater than zero', 5, true, false))
