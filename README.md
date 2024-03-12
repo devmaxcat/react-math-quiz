@@ -33,7 +33,7 @@ Display results page after quiz is finished:
 Use CSS and Comments  
 
 ## Time Spent
-~ 1 weeks
+~ 1 week
 
 
 
