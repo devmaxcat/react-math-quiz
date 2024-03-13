@@ -301,18 +301,16 @@ select {
 }
 
 .check-slider {
-  position: relative;
-  cursor: pointer;
-  padding: 0 .0em;
-  box-sizing: border-box;
-  font-size: 1.5em;
-  display: flex;
-  align-items: center;
-  width: 2.3em;
-  height: .7em;
-  border-radius: 5px;
-  background-color: rgb(240, 240, 240);
-  transition-duration: 300ms;
+    background-color: #f0f0f0;
+    border-radius: 1em;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 1.5em;
+    height: 1em;
+    padding: 0;
+    position: relative;
+    transition-duration: .3s;
+    width: 2.3em;
 }
 
 .check-slider .handle {
@@ -330,12 +328,12 @@ select {
 }
 
 .check-slider.true .handle {
-  left: calc(100% - .9em);
+  left: calc(100% - 1em);
   background-color: rgb(48, 208, 88);
 }
 
 .check-slider.false .handle {
-  left: -.1em;
+  left: 0em;
   background-color: rgb(177, 183, 191);
 }
 
