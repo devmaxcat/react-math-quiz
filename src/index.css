@@ -128,7 +128,8 @@ code {
 .user-answer {
   display: inline-block;
  
-  min-width: 2em;
+  width: 4em;
+  overflow: hidden;
   font-weight: bold;
   text-align: center;
   background-color: rgb(240, 240, 240);
@@ -148,19 +149,18 @@ code {
   position: relative;
 }
 
-.user-answer::before {
-  display: inline-block;
-  position: absolute;
-  content: ' ';
-  height: 7em;
-  bottom: -1em;
-  right: -9.8em;
-  width: auto;
-  width: .2em;
-  padding: .4em 0;
-  border-radius: 5px;
-  color: white;
-  
+.user-answer:before {
+    border-radius: 5px;
+    bottom: -1em;
+    color: #fff;
+    content: " ";
+    display: inline-block;
+    height: 7em;
+    padding: .4em 0;
+    position: absolute;
+    right: -9.2em;
+    width: auto;
+    width: .2em;
 }
 
 .user-answer.false::before {
