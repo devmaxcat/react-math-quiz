@@ -123,7 +123,11 @@ code {
 
 }
 
-
+.recap-question > span {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
 
 .user-answer {
   display: inline-block;
@@ -135,6 +139,11 @@ code {
   background-color: rgb(240, 240, 240);
   padding: .2em;
   border-radius: 5px;
+}
+
+.recap-question span {
+  display: flex;
+  align-items: center;
 }
 
 .user-answer.false {
