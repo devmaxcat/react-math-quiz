@@ -135,6 +135,7 @@ code {
   width: 4em;
   overflow: hidden;
   font-weight: bold;
+  justify-content: center;
   text-align: center;
   background-color: rgb(240, 240, 240);
   padding: .2em;
@@ -167,7 +168,7 @@ code {
     height: 7em;
     padding: .4em 0;
     position: absolute;
-    right: -9.2em;
+    right: -9em;
     width: auto;
     width: .2em;
 }
